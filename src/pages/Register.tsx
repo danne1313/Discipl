@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { User, Mail, Lock, AlertCircle, CheckCircle, Eye, EyeOff } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -69,9 +69,7 @@ const Register = () => {
     
     if (success) {
       setSuccess('Account created successfully! Redirecting...');
-      setTimeout(() => {
-        navigate('/');
-      }, 2000);
+      navigate("/", { replace: true });
     } else {
       setError('Failed to create account. Please try again.');
     }

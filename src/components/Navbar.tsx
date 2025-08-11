@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, User, LogOut, Settings, Home, Info, MapPin, Calendar, Mail } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
+import { User, LogOut, Settings, Home, Info, MapPin, Calendar, Mail } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
 const Navbar = () => {
+  const { userLoggedIn } = useAuth();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const location = useLocation();
