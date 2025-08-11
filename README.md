@@ -12,6 +12,6 @@ This is an an event and competition management site where users can join fitness
 
 ### DEPLOYMENT
 
-This app has yet to be deployed at dicipl-alpha-build.netlify.app/
+This app has yet to be deployed at https://dicipl-alpha-build.netlify.app/
 
 You can check it out there. Enjoy :)

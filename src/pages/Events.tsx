@@ -188,7 +188,7 @@ const Events = () => {
                     </span>
                   </div>
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                    <span className="text-lg font-bold text-red-500">${event.price}</span>
+                    <span className="text-lg font-bold text-red-500">₹{event.price}</span>
                   </div>
                 </div>
                 

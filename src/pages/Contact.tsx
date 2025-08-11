@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Youtube, Send, CheckCircle, Instagram, Facebook } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -40,26 +40,37 @@ const Contact = () => {
       icon: <Mail className="w-6 h-6 text-red-500" />,
       title: "Email",
       details: ["info@discipl.com"],
-      description: "Get in touch via email for general inquiries or partnerships"
+      description: "Get in touch via email for general inquiries or partnerships",
+      link: ""
     },
     {
       icon: <Phone className="w-6 h-6 text-red-500" />,
       title: "Phone",
       details: ["+91 9746458284 "],
-      description: "Call us during business hours for immediate assistance"
+      description: "Call us during business hours for immediate assistance",
+      link: ""
     },
     {
-      icon: <MapPin className="w-6 h-6 text-red-500" />,
-      title: "Office",
-      details: ["L-15, AUWM, Thadambattuthazham, Vengeri, Kozhikode-673010"],
-      description: "Visit our headquarters for in-person meetings"
+      icon: <Youtube className="w-6 h-6 text-red-500" />,
+      title: "Youtube",
+      details: ["@DisciplFitnessHub"],
+      description: "Join Discipl and embrace a disciplined and fulfilling approach to fitness and wellness.",
+      link: "https://www.youtube.com/@DisciplFitnessHub"
     },
     {
-      icon: <Clock className="w-6 h-6 text-red-500" />,
-      title: "Hours",
-      details: ["Mon - Fri: 9:00 AM - 6:00 PM", "Sat - Sun: 10:00 AM - 4:00 PM"],
-      description: "Our customer support is available during these hours"
-    }
+      icon: <Facebook className="w-6 h-6 text-red-500" />,
+      title: "Facebook",
+      details: ["facebook.com/thediscipl"],
+      description: "Digitalize your fitness center and transform yourself through discipl.",
+      link: "https://www.facebook.com/thediscipl/"
+    },
+    {
+      icon: <Instagram className="w-6 h-6 text-red-500" />,
+      title: "Instagram",
+      details: ["@discipl__"],
+      description: "Disciple - Walk Earn Live",
+      link: "https://www.instagram.com/discipl__/"
+    },
   ];
 
   return (
@@ -81,27 +92,29 @@ const Contact = () => {
       {/* Contact Info Cards */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {contactInfo.map((info, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="mb-4">{info.icon}</div>
-                <h3 className="text-xl font-bold text-black mb-3">
-                  {info.title}
-                </h3>
-                <div className="mb-3">
-                  {info.details.map((detail, idx) => (
-                    <p key={idx} className="text-gray-700 font-medium">
-                      {detail}
+                <div
+                  key={index}
+                  className="bg-white p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <a href={info.link || "#"} >
+                    <div className="mb-4">{info.icon}</div>
+                    <h3 className="text-xl font-bold text-black mb-3">
+                      {info.title}
+                    </h3>
+                    <div className="mb-3">
+                      {info.details.map((detail, idx) => (
+                        <p key={idx} className="text-gray-700 font-medium">
+                          {detail}
+                        </p>
+                      ))}
+                    </div>
+                    <p className="text-gray-600 text-sm">
+                      {info.description}
                     </p>
-                  ))}
+                  </a>
                 </div>
-                <p className="text-gray-600 text-sm">
-                  {info.description}
-                </p>
-              </div>
             ))}
           </div>
         </div>
@@ -218,11 +231,22 @@ const Contact = () => {
                 Why Choose Discipl?
               </h2>
               
-              <div className="bg-gray-100 rounded-lg h-64 mb-8 flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <MapPin className="w-12 h-12 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Interactive Map</p>
-                  <p className="text-sm">L-15, AUWM, Thadambattuthazham, Vengeri, Kozhikode-673010</p>
+              <div className="flex flex-col justify-evenly">
+                <div className="bg-gray-100 rounded-lg h-64 mb-1 flex flex-col items-center justify-center">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15650.102154382917!2d75.77022258715822!3d11.296246400000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d918e9583142b25%3A0x7b712d6b87310149!2sDiscipl!5e0!3m2!1sen!2sin!4v1754909444381!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style={{border:0}} 
+                    allowFullScreen={false}
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade">
+                  </iframe>
+                </div>
+                <div className="bg-gray-100 rounded-lg h-10 mb-8 flex items-center justify-center">
+                  <div className="text-center text-gray-600 flex flex-row">
+                    <MapPin className="w-5 h-5 mx-auto mr-4" />
+                    <p className="text-sm">Room no - L-15, AUWM, Thadampattuthazham, Kozhikode, Kerala 673010</p>
+                  </div>
                 </div>
               </div>
 

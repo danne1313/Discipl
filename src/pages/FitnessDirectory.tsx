@@ -17,7 +17,7 @@ const FitnessDirectory = () => {
       category: "Gym",
       amenities: ["Free Weights", "Cardio Equipment", "Personal Training", "Locker Rooms"],
       hours: "5:00 AM - 11:00 PM",
-      membership: "$49/month",
+      membership: "₹49/month",
       image: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
@@ -31,7 +31,7 @@ const FitnessDirectory = () => {
       category: "Yoga",
       amenities: ["Yoga Classes", "Meditation Room", "Massage Therapy", "Wellness Workshops"],
       hours: "6:00 AM - 9:00 PM",
-      membership: "$79/month",
+      membership: "₹79/month",
       image: "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
@@ -45,7 +45,7 @@ const FitnessDirectory = () => {
       category: "CrossFit",
       amenities: ["CrossFit Classes", "Olympic Lifting", "Metabolic Conditioning", "Nutrition Coaching"],
       hours: "5:30 AM - 10:00 PM",
-      membership: "$129/month",
+      membership: "₹129/month",
       image: "https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
@@ -59,7 +59,7 @@ const FitnessDirectory = () => {
       category: "Swimming",
       amenities: ["Olympic Pool", "Kids Pool", "Swimming Lessons", "Water Aerobics"],
       hours: "5:00 AM - 10:00 PM",
-      membership: "$65/month",
+      membership: "₹65/month",
       image: "https://images.pexels.com/photos/863988/pexels-photo-863988.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
@@ -73,7 +73,7 @@ const FitnessDirectory = () => {
       category: "Gym",
       amenities: ["24/7 Access", "Group Classes", "Cardio Theater", "Smoothie Bar"],
       hours: "24/7",
-      membership: "$39/month",
+      membership: "₹39/month",
       image: "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
@@ -87,7 +87,7 @@ const FitnessDirectory = () => {
       category: "Dance",
       amenities: ["Dance Classes", "Private Lessons", "Performance Opportunities", "Mirrored Studios"],
       hours: "9:00 AM - 10:00 PM",
-      membership: "$55/month",
+      membership: "₹55/month",
       image: "https://images.pexels.com/photos/3775593/pexels-photo-3775593.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
@@ -101,7 +101,7 @@ const FitnessDirectory = () => {
       category: "Sports Training",
       amenities: ["Sports Training", "Performance Testing", "Recovery Center", "Nutrition Planning"],
       hours: "6:00 AM - 9:00 PM",
-      membership: "$99/month",
+      membership: "₹99/month",
       image: "https://images.pexels.com/photos/2827400/pexels-photo-2827400.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
@@ -115,7 +115,7 @@ const FitnessDirectory = () => {
       category: "Pilates",
       amenities: ["Pilates Classes", "Reformer Training", "Mat Classes", "Physical Therapy"],
       hours: "7:00 AM - 8:00 PM",
-      membership: "$89/month",
+      membership: "₹89/month",
       image: "https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg?auto=compress&cs=tinysrgb&w=400"
     }
   ];
