@@ -115,9 +115,9 @@ const Events = () => {
   );
 
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50 text-black">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50 text-black sm: h-[15rem] md: h-[15rem]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">

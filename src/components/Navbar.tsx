@@ -124,7 +124,7 @@ const Navbar = () => {
         <div className="px-4 py-3">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold text-black">APEX.</span>
+              <span className="text-2xl font-bold text-black">Discipl</span>
             </Link>
             {user && (
               <button
@@ -180,7 +180,7 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`flex flex-col items-center py-2 px-3 rounded-lg transition-all duration-200 ${
+                className={`flex flex-col items-center py-2 px-2 rounded-lg transition-all duration-200 ${
                   isActive(link.path)
                     ? 'text-red-500 bg-red-50'
                     : 'text-gray-600 hover:text-red-500 hover:bg-gray-50'
