@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Dumbbell, Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Dumbbell, Facebook, Twitter, Instagram, Mail, Phone, MapPin, Youtube } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -10,21 +10,22 @@ const Footer: React.FC = () => {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <Dumbbell className="h-8 w-8 text-primary-500" />
-              <span className="font-bold text-2xl">Discipl</span>
+              {/* <Dumbbell className="h-8 w-8 text-primary-500" />
+              <span className="font-bold text-2xl">Discipl</span> */}
+              <img src="/logo_blac_bg.png" alt="Discipl Logo" className="h-8 w-25" />
             </div>
             <p className="text-neutral-400 text-sm leading-6">
               Your ultimate fitness and sports platform. Connecting athletes, fitness enthusiasts, 
               and wellness seekers with the best facilities and events.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-neutral-400 hover:text-primary-500 transition-colors">
+              <a href="https://www.facebook.com/thediscipl/" target="_blank" className="text-neutral-400 hover:text-primary-500 transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-neutral-400 hover:text-primary-500 transition-colors">
-                <Twitter className="h-5 w-5" />
+              <a href="https://www.youtube.com/@DisciplFitnessHub" target="_blank" className="text-neutral-400 hover:text-primary-500 transition-colors">
+                <Youtube className="h-5 w-5" />
               </a>
-              <a href="#" className="text-neutral-400 hover:text-primary-500 transition-colors">
+              <a href="https://www.instagram.com/discipl__/" target="_blank" className="text-neutral-400 hover:text-primary-500 transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
@@ -67,16 +68,16 @@ const Footer: React.FC = () => {
             <h3 className="font-semibold text-lg mb-4">Contact Info</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-neutral-400">
-                <Mail className="h-4 w-4 flex-shrink-0" />
-                <span className="text-sm">info@discipl.com</span>
+                  <Mail className="h-4 w-4 flex-shrink-0" />
+                  <a href="mailto: info@discipl.com" className="text-sm">info@discipl.com</a>
               </div>
               <div className="flex items-center space-x-3 text-neutral-400">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <a href="tel:+15551234567" className="text-sm">+91 9746458284 </a>
               </div>
               <div className="flex items-center space-x-3 text-neutral-400">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
-                <span className="text-sm">123 Fitness Ave, Health City, HC 12345</span>
+                <span className="text-sm">L-15, AUWM, Thadambattuthazham, Vengeri, Kozhikode-673010</span>
               </div>
             </div>
           </div>
@@ -84,7 +85,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-neutral-800 mt-12 pt-8 text-center">
           <p className="text-neutral-400 text-sm">
-            © 2025 Discipl. All rights reserved. | Privacy Policy | Terms of Service
+            © 2025 Discipl. All rights reserved. | <a href="privacy_policy.pdf" target="_blank">Privacy Policy</a> | <a href="terms_and_conditions.pdf" target="_blank">Terms and Conditions</a> | <a href="https://thediscipl.com/privacy-policy-vendorapp/" target="_blank">Privacy Policy for Vendor App</a>
           </p>
         </div>
       </div>

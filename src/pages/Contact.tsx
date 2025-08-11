@@ -1,112 +1,106 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 
-const Contact: React.FC = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: '',
+    message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    // Reset form
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    setIsSubmitted(true);
+    setIsSubmitting(false);
     setFormData({ name: '', email: '', subject: '', message: '' });
-    alert('Message sent successfully!');
+    
+    // Reset success message after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 3000);
   };
 
   const contactInfo = [
     {
-      icon: <Mail className="h-6 w-6" />,
-      title: 'Email',
-      details: 'example@gmail.com',
-      subtitle: 'We reply within 24 hours',
+      icon: <Mail className="w-6 h-6 text-red-500" />,
+      title: "Email",
+      details: ["info@discipl.com"],
+      description: "Get in touch via email for general inquiries or partnerships"
     },
     {
-      icon: <Phone className="h-6 w-6" />,
-      title: 'Phone',
-      details: '+91 00000 00000',
-      subtitle: 'Mon-Fri, 9AM-6PM IST',
+      icon: <Phone className="w-6 h-6 text-red-500" />,
+      title: "Phone",
+      details: ["+91 9746458284 "],
+      description: "Call us during business hours for immediate assistance"
     },
     {
-      icon: <MapPin className="h-6 w-6" />,
-      title: 'Address',
-      details: 'placeholder address',
-      subtitle: 'city - pincode',
+      icon: <MapPin className="w-6 h-6 text-red-500" />,
+      title: "Office",
+      details: ["L-15, AUWM, Thadambattuthazham, Vengeri, Kozhikode-673010"],
+      description: "Visit our headquarters for in-person meetings"
     },
     {
-      icon: <Clock className="h-6 w-6" />,
-      title: 'Business Hours',
-      details: 'Mon-Fri: 9AM-6PM IST',
-      subtitle: 'Sat-Sun: 10AM-4PM IST',
-    },
-  ];
-
-  const faqs = [
-    {
-      question: 'Question 1',
-      answer: 'Answer 1'
-    },
-    {
-      question: 'Question 2',
-      answer: 'Answer 2'
-    },
-    {
-      question: 'Question 3',
-      answer: 'Answer 3',
-    },
-    {
-      question: 'Question 4',
-      answer: 'Answer 4',
-    },
-    {
-      question: 'Question 5',
-      answer: 'Answer 5',
-    },
+      icon: <Clock className="w-6 h-6 text-red-500" />,
+      title: "Hours",
+      details: ["Mon - Fri: 9:00 AM - 6:00 PM", "Sat - Sun: 10:00 AM - 4:00 PM"],
+      description: "Our customer support is available during these hours"
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-16">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50 text-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Have questions about our platform? Want to partner with us? 
-              We'd love to hear from you and help you on your fitness journey.
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Get in <span className="text-red-500">Touch</span>
+            </h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-600">
+              We're here to help you succeed. Reach out to us with any questions or feedback.
             </p>
           </div>
         </div>
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info, index) => (
               <div
                 key={index}
-                className="text-center p-8 bg-neutral-50 rounded-2xl hover:shadow-lg transition-shadow duration-300"
+                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="text-primary-600 mb-4 flex justify-center">{info.icon}</div>
-                <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+                <div className="mb-4">{info.icon}</div>
+                <h3 className="text-xl font-bold text-black mb-3">
                   {info.title}
                 </h3>
-                <p className="text-lg text-neutral-700 font-medium mb-1">
-                  {info.details}
+                <div className="mb-3">
+                  {info.details.map((detail, idx) => (
+                    <p key={idx} className="text-gray-700 font-medium">
+                      {detail}
+                    </p>
+                  ))}
+                </div>
+                <p className="text-gray-600 text-sm">
+                  {info.description}
                 </p>
-                <p className="text-sm text-neutral-600">{info.subtitle}</p>
               </div>
             ))}
           </div>
@@ -114,187 +108,172 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Contact Form & Map */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-                  Send us a Message
-                </h2>
-                <p className="text-neutral-600">
-                  Fill out the form below and we'll get back to you as soon as possible.
-                </p>
-              </div>
+            <div>
+              <h2 className="text-3xl font-bold text-black mb-8">
+                Send us a Message
+              </h2>
+              
+              {isSubmitted && (
+                <div className="mb-6 p-4 bg-green-100 border border-green-300 rounded-lg flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
+                  <span className="text-green-800">
+                    Thank you! Your message has been sent successfully.
+                  </span>
+                </div>
+              )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-neutral-700 mb-2">
-                      Name *
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      Full Name *
                     </label>
                     <input
                       type="text"
+                      id="name"
                       name="name"
+                      required
                       value={formData.name}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent transition-colors duration-200"
                       placeholder="Your full name"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-neutral-700 mb-2">
-                      Email *
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Email Address *
                     </label>
                     <input
                       type="email"
+                      id="email"
                       name="email"
+                      required
                       value={formData.email}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
-                      placeholder="your@email.com"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent transition-colors duration-200"
+                      placeholder="your.email@example.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                     Subject *
                   </label>
                   <select
+                    id="subject"
                     name="subject"
+                    required
                     value={formData.subject}
                     onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors duration-200"
                   >
                     <option value="">Select a subject</option>
                     <option value="general">General Inquiry</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="support">Technical Support</option>
+                    <option value="technical">Technical Support</option>
+                    <option value="partnership">Partnership Opportunity</option>
                     <option value="feedback">Feedback</option>
-                    <option value="listing">Facility Listing</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                     Message *
                   </label>
                   <textarea
+                    id="message"
                     name="message"
+                    rows={6}
+                    required
                     value={formData.message}
                     onChange={handleChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200"
-                    placeholder="Tell us more about your inquiry..."
-                  ></textarea>
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors duration-200 resize-none"
+                    placeholder="Tell us how we can help you..."
+                  />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200 flex items-center justify-center"
+                  disabled={isSubmitting}
+                  className="w-full bg-red-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-red-600 disabled:bg-red-400 transition-colors duration-200 flex items-center justify-center"
                 >
-                  <Send className="h-5 w-5 mr-2" />
-                  Send Message
+                  {isSubmitting ? (
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                  ) : (
+                    <Send className="w-5 h-5 mr-2" />
+                  )}
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
 
             {/* Map/Additional Info */}
-            <div className="space-y-8">
-              <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <h3 className="text-2xl font-bold text-neutral-900 mb-6">
-                  Our Location
-                </h3>
-                <div className="aspect-video bg-neutral-200 rounded-lg mb-6 flex items-center justify-center">
-                  <div className="text-center text-neutral-600">
-                    <MapPin className="h-12 w-12 mx-auto mb-2" />
-                    <p>Interactive Map</p>
-                    <p className="text-sm">123 Fitness Ave, Health City, HC 12345</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="h-5 w-5 text-primary-600 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-neutral-900">Address</p>
-                      <p className="text-neutral-600">123 Fitness Ave, Health City, HC 12345</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <Clock className="h-5 w-5 text-primary-600 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-neutral-900">Office Hours</p>
-                      <p className="text-neutral-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                      <p className="text-neutral-600">Saturday - Sunday: 10:00 AM - 4:00 PM</p>
-                    </div>
-                  </div>
+            <div>
+              <h2 className="text-3xl font-bold text-black mb-8">
+                Why Choose Discipl?
+              </h2>
+              
+              <div className="bg-gray-100 rounded-lg h-64 mb-8 flex items-center justify-center">
+                <div className="text-center text-gray-600">
+                  <MapPin className="w-12 h-12 mx-auto mb-4" />
+                  <p className="text-lg font-medium">Interactive Map</p>
+                  <p className="text-sm">L-15, AUWM, Thadambattuthazham, Vengeri, Kozhikode-673010</p>
                 </div>
               </div>
 
-              <div className="bg-primary-50 p-8 rounded-2xl">
-                <div className="flex items-center mb-4">
-                  <MessageCircle className="h-8 w-8 text-primary-600 mr-3" />
-                  <h3 className="text-xl font-bold text-neutral-900">
-                    Need Immediate Help?
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-bold text-black mb-4">
+                    Our Advantages
                   </h3>
+                  <ul className="space-y-3 text-gray-700">
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <span>Comprehensive fitness center management platform</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <span>Innovative event organization and management tools</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <span>24/7 customer support and assistance</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <span>Growing community of fitness professionals</span>
+                    </li>
+                  </ul>
                 </div>
-                <p className="text-neutral-600 mb-6">
-                  Our support team is available during business hours to assist you with any questions or technical issues.
-                </p>
-                <div className="space-y-3">
-                  <a
-                    href="tel:+15551234567"
-                    className="flex items-center text-primary-600 hover:text-primary-700 font-medium"
-                  >
-                    <Phone className="h-4 w-4 mr-2" />
-                    +1 (555) 123-4567
-                  </a>
-                  <a
-                    href="mailto:support@discipl.com"
-                    className="flex items-center text-primary-600 hover:text-primary-700 font-medium"
-                  >
-                    <Mail className="h-4 w-4 mr-2" />
-                    support@discipl.com
-                  </a>
+
+                <div className="bg-red-50 p-6 rounded-lg">
+                  <h4 className="font-bold text-black mb-2">Need Immediate Help?</h4>
+                  <p className="text-gray-700 mb-4">
+                    For urgent matters, please call our support hotline or send us an email. 
+                    We typically respond within 2-4 hours during business hours.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a
+                      href="tel:+15551234567"
+                      className="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 transition-colors duration-200 text-center"
+                    >
+                      Call Now
+                    </a>
+                    <a
+                      href="mailto: info@discipl.com"
+                      className="border border-red-500 text-red-500 px-4 py-2 rounded-full hover:bg-red-500 hover:text-white transition-colors duration-200 text-center"
+                    >
+                      Email Support
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xl text-neutral-600">
-              Find answers to common questions about Discipl and our services.
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-neutral-50 rounded-lg p-6 hover:bg-neutral-100 transition-colors duration-200"
-              >
-                <h3 className="text-lg font-semibold text-neutral-900 mb-3">
-                  {faq.question}
-                </h3>
-                <p className="text-neutral-600 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

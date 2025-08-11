@@ -1,6 +1,6 @@
 # DISCIPL
 
-This is an an event and competition management site where users can join events.
+This is an an event and competition management site where users can join fitness events.
 
 ## FRAMEWORKS AND OTHER RESOURCES USED IN THIS PROJECT:
 
@@ -12,4 +12,6 @@ This is an an event and competition management site where users can join events.
 
 ### DEPLOYMENT
 
-This app has yet to be deployed :/
+This app has yet to be deployed at dicipl-alpha-build.netlify.app/
+
+You can check it out there. Enjoy :)
