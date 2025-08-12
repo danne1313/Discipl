@@ -27,7 +27,8 @@ const Events = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('http://localhost:8172/api/events');
+        const response = await axios.get('https://discipl-server.onrender.com/api/events');  // Used for github deployment
+        //const response = await axios.get('http://localhost:8172/api/events');
         setEvents(response.data);
       } catch (err) {
         setError('Failed to load events. Please try again later.');
