@@ -97,7 +97,8 @@ const AdminPanel = () => {
 
       const eventData = { ...eventDetails, imageUrl, judgingCriteria: finalCriteria, socialMedia: finalSocials };
 
-      await axios.post('http://localhost:8172/api/events', eventData);
+      await axios.post('https://discipl-server.onrender.com/api/events', eventData); // This is used when running from github repo
+      // await axios.post('http://localhost:8172/api/events', eventData); // This is used when running on localhost
       alert("Event created successfully!");
       setIsModalOpen(false);
       setEventDetails({
