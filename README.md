@@ -2,6 +2,15 @@
 
 This is an an event and competition management site where users can join fitness events.
 
+## THINGS THAT I WILL BE LEARNING FROM THS PROJECT:
+
+- Exploring cloudinary cloud service and how it is used to store media files
+- Working with MongoDB
+- Working with MVC Architecture
+- Working with Lucide React
+- Learning how a event management system works
+- Managing roles with Firebase Authentication 
+
 ## FRAMEWORKS AND OTHER RESOURCES USED IN THIS PROJECT:
 
 - NodeJS - https://nodejs.org/en/download  
@@ -9,6 +18,9 @@ This is an an event and competition management site where users can join fitness
 - Netlify - https://www.netlify.com/  
 - TailwindCSS - https://tailwindcss.com/
 - Lucide React - https://lucide.dev/guide/packages/lucide-react
+- Firebase Authentication - https://firebase.google.com/docs/auth
+- Firebase Firestore Database - https://firebase.google.com/docs/firestore
+- MongoDB - https://www.mongodb.com/
 
 ### DEPLOYMENT
 
