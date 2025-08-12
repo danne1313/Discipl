@@ -175,12 +175,12 @@ const Navbar = () => {
       {/* Mobile Bottom Navigation */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
         <div className="bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-lg rounded-t-2xl mx-4 mb-4">
-          <div className="flex items-center py-2">
+          <div className="flex justify-around items-center py-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`flex-1 flex-col items-center py-2 px-2 rounded-lg transition-all duration-200 ${
+                className={`flex flex-col items-center py-2 px-2 rounded-lg transition-all duration-200 ${
                   isActive(link.path)
                     ? 'text-red-500 bg-red-50'
                     : 'text-gray-600 hover:text-red-500 hover:bg-gray-50'
@@ -195,7 +195,7 @@ const Navbar = () => {
             {!user && (
               <Link
                 to="/login"
-                className="flex-1 flex-col items-center py-2 px-3 rounded-lg transition-all duration-200 text-gray-600 hover:text-red-500 hover:bg-gray-50"
+                className="flex flex-col items-center py-2 px-3 rounded-lg transition-all duration-200 text-gray-600 hover:text-red-500 hover:bg-gray-50"
               >
                 <User size={20} />
                 <span className="text-xs mt-1 font-medium">Login</span>
