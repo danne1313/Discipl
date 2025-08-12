@@ -11,6 +11,13 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+const corsOptions = {
+  origin: 'https://dicipl-alpha-build.netlify.app', // Your Netlify URL
+  optionsSuccessStatus: 200 
+};
+
+app.use(cors(corsOptions));
+
 // 2. CONNECT TO DATABASE
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected successfully."))
